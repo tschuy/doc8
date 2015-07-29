@@ -84,6 +84,17 @@ class CheckNewlineEndOfFile(ContentCheck):
             yield (len(parsed_file.lines), 'D005', 'No newline at end of file')
 
 
+class CheckLabelFormat(LineCheck):
+    REPORTS = frozenset(["D006", "D007"])
+
+    def report_iter(self, line):
+        if line.startswith('.. _') and line.endswith(':'):
+            if '-' in line:
+                yield ('D006', 'Label contains hyphen')
+            elif line.lower() != line:
+                yield ('D007', 'Label contains capital letter')
+
+
 class CheckValidity(ContentCheck):
     REPORTS = frozenset(["D000"])
     EXT_MATCHER = re.compile(r"(.*)[.]rst", re.I)

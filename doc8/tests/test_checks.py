@@ -58,6 +58,18 @@ class TestCarriageReturn(testtools.TestCase):
         self.assertIn(code, check.REPORTS)
 
 
+class CheckLabelFormat(testtools.TestCase):
+    def test_snake_case(self):
+        lines = [".. _abc_123:", ".. _test-case:", ".. _UPPER_CASE:"]
+        check = checks.CheckLabelFormat({})
+        errors = []
+        for line in lines:
+            errors.extend(check.report_iter(line))
+        self.assertEqual(2, len(errors))
+        (code, msg) = errors[0]
+        self.assertIn(code, check.REPORTS)
+
+
 class TestLineLength(testtools.TestCase):
     def test_over_length(self):
         content = b"""

@@ -154,6 +154,7 @@ def fetch_checks(cfg):
         checks.CheckCarriageReturn(cfg),
         checks.CheckMaxLineLength(cfg),
         checks.CheckNewlineEndOfFile(cfg),
+        checks.CheckLabelFormat(cfg),
     ]
     mgr = extension.ExtensionManager(
         namespace='doc8.extension.check',
