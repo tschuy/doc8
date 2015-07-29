@@ -58,7 +58,7 @@ class TestCarriageReturn(testtools.TestCase):
         self.assertIn(code, check.REPORTS)
 
 
-class CheckLabelFormat(testtools.TestCase):
+class TestLabelFormat(testtools.TestCase):
     def test_snake_case(self):
         lines = [".. _abc_123:", ".. _test-case:", ".. _UPPER_CASE:"]
         check = checks.CheckLabelFormat({})

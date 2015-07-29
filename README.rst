@@ -45,6 +45,8 @@ Command line usage
         - no tabulation for indentation - D003
         - no carriage returns (use unix newlines) - D004
         - no newline at end of file - D005
+        - no hyphens in labels - D006
+        - no capitals in labels - D007
 
     positional arguments:
       path                  Path to scan for doc files (default: current
