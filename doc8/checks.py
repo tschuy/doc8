@@ -113,6 +113,7 @@ class CheckValidity(ContentCheck):
         re.compile(r'^Unknown directive type'),
         re.compile(r'^Undefined substitution'),
         re.compile(r'^Substitution definition contains illegal element'),
+        re.compile(r'^Cannot analyze code\. No Pygments lexer found for "none"'),
     ]
 
     def __init__(self, cfg):
